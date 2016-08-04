@@ -21,15 +21,6 @@ public class EarthQuakeClient {
         return answer;              
     }
     
-    
-    /**
-     * 
-     * 
-     * @param quakeData
-     * @param distMax
-     * @param from
-     * @return
-     */
     public ArrayList<QuakeEntry> filterByDistanceFrom(ArrayList<QuakeEntry> quakeData, double distMax, Location from) {      
         ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
         // TODO

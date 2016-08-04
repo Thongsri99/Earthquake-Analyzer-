@@ -1,0 +1,52 @@
+import java.util.*;
+/**
+ * Class to find closest quakes to a location
+ * 
+ * @author Pete Thongsri
+ * @version 1.00 8/4/2016
+ */
+public class ClosestQuakes {
+
+    public ArrayList<QuakeEntry> getClosest(ArrayList<QuakeEntry> list , Location location , int howMany){
+        ArrayList<QuakeEntry> ret = new ArrayList<QuakeEntry>();
+        ArrayList<QuakeEntry> copy = new ArrayList<QuakeEntry>(list);
+        for (int j = 0 ; j < howMany; j++){
+
+            int minIndex = 0;
+            for(int i = 1 ; i < copy.size() ; i++){
+                QuakeEntry current = copy.get(i);
+                Location loc = current.getLocation();
+                if (loc.distanceTo(location) < 
+                    copy.get(minIndex).getLocation().distanceTo(location)){
+                    minIndex = i;
+                }
+                
+            }
+            
+            ret.add(copy.get(minIndex));
+            copy.remove(minIndex);
+        }
+        return ret;
+    }
+
+    public void findCloseQuakes(){
+        EarthQuakeParser parser = new EarthQuakeParser();
+        String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
+        ArrayList<QuakeEntry> list = parser.read(source);
+        System.out.println("Read Data for " + list.size());
+        Location orlandHills = new Location(41.583, -87.8431);
+        ArrayList<QuakeEntry> closest = getClosest(list,orlandHills,10);
+        
+        double distanceInMeters;
+        for (int i = 0 ; i < closest.size() ; i++){
+            QuakeEntry current = closest.get(i);
+            
+            distanceInMeters = orlandHills.distanceTo(current.getLocation());
+            System.out.printf("%4.2f \t %s \n" , distanceInMeters/1000 , current);
+        
+        }
+        
+
+    }
+
+}
