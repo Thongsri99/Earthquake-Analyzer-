@@ -6,7 +6,7 @@ public class EarthQuakeClient {
     /**
      * Returns an ArrayList of earthquakes that are above the given minimum magnitude.
      * 
-     * @param quakeData ArrayList of all earthquakes from a given source
+     * @param quakeData ArrayList of all earthquakes 
      * @param magMin Minimum magnitude 
      * @return
      */
@@ -23,10 +23,10 @@ public class EarthQuakeClient {
     
     
     /**
-     * Filter to select earthquakes that occur within a certain distance from a location
      * 
-     * @param quakeData ArrayList of all earthquakes from a given source
-     * @param distMax Maximum distance
+     * 
+     * @param quakeData
+     * @param distMax
      * @param from
      * @return
      */
@@ -40,14 +40,7 @@ public class EarthQuakeClient {
         }
         return answer;
     }
-    
-    
-    /**
-     * 
-     * Prints earthquakes from the list
-     * 
-     * @param list ArrayList of all earthquakes from a given source
-     */
+            
     public void dumpCSV(ArrayList<QuakeEntry> list){
 		System.out.println("Latitude,Longitude,Magnitude,Info");
 		for(QuakeEntry qe : list){
@@ -60,9 +53,6 @@ public class EarthQuakeClient {
 		
 	}
 	
-	/**
-	 * Prints quakes that exceed a given threwhold using the filterByMagnitude method.
-	 */
 	public void bigQuakes() {
 	    EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";

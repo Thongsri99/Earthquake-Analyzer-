@@ -8,8 +8,8 @@ import java.util.*;
 public class ClosestQuakes {
 
     /**
-     * 
      * Calculates the n closest earthquakes to a location object
+     * 
      * 
      * @param list ArrayList of the all the quakes from a given source
      * @param location Location object of a location given a latitude and longitude 
@@ -41,7 +41,7 @@ public class ClosestQuakes {
     
     
     /**
-     * Prints out the n closest earthquakes to a location object
+     * Method 
      */
     public void findCloseQuakes(){
         EarthQuakeParser parser = new EarthQuakeParser();

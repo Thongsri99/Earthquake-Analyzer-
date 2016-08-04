@@ -41,7 +41,7 @@ public class ClosestQuakes {
     
     
     /**
-     * Prints out the n closest earthquakes to a location object
+     * Method 
      */
     public void findCloseQuakes(){
         EarthQuakeParser parser = new EarthQuakeParser();

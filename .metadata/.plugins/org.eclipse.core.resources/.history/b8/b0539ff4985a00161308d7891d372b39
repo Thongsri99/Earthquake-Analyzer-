@@ -8,12 +8,9 @@ import java.util.*;
 public class ClosestQuakes {
 
     /**
-     * 
-     * Calculates the n closest earthquakes to a location object
-     * 
      * @param list ArrayList of the all the quakes from a given source
      * @param location Location object of a location given a latitude and longitude 
-     * @param howMany Limit to how many locations given
+     * @param howMany
      * @return
      */
     public ArrayList<QuakeEntry> getClosest(ArrayList<QuakeEntry> list , Location location , int howMany){
@@ -38,11 +35,6 @@ public class ClosestQuakes {
         return ret;
     }
 
-    
-    
-    /**
-     * Prints out the n closest earthquakes to a location object
-     */
     public void findCloseQuakes(){
         EarthQuakeParser parser = new EarthQuakeParser();
         String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
