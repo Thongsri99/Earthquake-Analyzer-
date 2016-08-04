@@ -1,7 +1,8 @@
-# Earthquake-Analyzer-
+# Earthquake-Analyzer- V 1.0
 
 ## Description
 Java program created to manipulate and extrapolate earthquake data from http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom
+
 Earthquake data and parsing occurs in real time.
 
 
