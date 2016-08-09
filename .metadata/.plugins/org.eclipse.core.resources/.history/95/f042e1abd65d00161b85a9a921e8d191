@@ -45,12 +45,7 @@ public class ClosestQuakes {
      */
     public void findCloseQuakes(){
         EarthQuakeParser parser = new EarthQuakeParser();
-		//Online Source
-		//String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-		
-		//Test Source
-		String source = "nov20quakedata.atom";
-		
+        String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
         ArrayList<QuakeEntry> list = parser.read(source);
         System.out.println("Read Data for " + list.size());
         Location orlandHills = new Location(41.583, -87.8431);

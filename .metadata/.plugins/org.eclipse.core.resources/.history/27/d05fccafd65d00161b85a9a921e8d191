@@ -13,11 +13,15 @@ public class LargestQuakes {
      */
     public void findLargestQuakes(){
         EarthQuakeParser parser = new EarthQuakeParser();
-		//Online Source
-		//String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-		
-		//Test Source
-		String source = "nov20quakedata.atom";
+        //Online Source
+        //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
+        
+        //Test Source
+        //String source = "data/nov20quakedatasmall.atom";
+        
+        
+        //Larger Test Source
+        String source = "data/nov20quakedata.atom";
         
         ArrayList<QuakeEntry> list = parser.read(source);
         System.out.println("# quakes read: " + list.size());
