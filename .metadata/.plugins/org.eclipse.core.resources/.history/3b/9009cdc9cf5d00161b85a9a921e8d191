@@ -60,40 +60,40 @@ public class EarthQuakeClient {
 
 		return answer;
 	}
-
-
-	/**
-	 *  Returns an ArrayList of quakes that have a given phrase
-	 * 
-	 * @param quakeData rrayList of all earthquakes from a given source
-	 * @param where Indicates where in quakeData to look for name
-	 * @param name What to look for 
-	 * @return
-	 */
-	public ArrayList<QuakeEntry> filterByPhrase(ArrayList<QuakeEntry> quakeData, String where , String name){
-		ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
-
-		if (where.equalsIgnoreCase("any")){
-			for (QuakeEntry qe : quakeData){
-				if ((qe.getInfo().contains(name)))
-					answer.add(qe);
-			}
-		}
-		else if (where.equalsIgnoreCase("end")){
-			for (QuakeEntry qe : quakeData){
-				if ((qe.getInfo().endsWith(name)))
-					answer.add(qe);
-			}
-		}
-		else if (where.equalsIgnoreCase("start")){
-			for (QuakeEntry qe : quakeData){
-				if ((qe.getInfo().startsWith((name))))
-					answer.add(qe);
-			}
-		}           
-
-		return answer;
-	}
+	
+	
+    /**
+     *  Returns an ArrayList of quakes that have a given phrase
+     * 
+     * @param quakeData rrayList of all earthquakes from a given source
+     * @param where Indicates where in quakeData to look for name
+     * @param name What to look for 
+     * @return
+     */
+    public ArrayList<QuakeEntry> filterByPhrase(ArrayList<QuakeEntry> quakeData, String where , String name){
+        ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
+        
+        if (where.equalsIgnoreCase("any")){
+            for (QuakeEntry qe : quakeData){
+                if ((qe.getInfo().contains(name)))
+                    answer.add(qe);
+            }
+        }
+        else if (where.equalsIgnoreCase("end")){
+            for (QuakeEntry qe : quakeData){
+                if ((qe.getInfo().endsWith(name)))
+                    answer.add(qe);
+            }
+        }
+        else if (where.equalsIgnoreCase("start")){
+            for (QuakeEntry qe : quakeData){
+                if ((qe.getInfo().startsWith((name))))
+                    answer.add(qe);
+            }
+        }           
+        
+        return answer;
+    }
 
 
 	/**
@@ -159,37 +159,20 @@ public class EarthQuakeClient {
 		}
 
 	}
-
-	public void quakesofDepth() {
-		EarthQuakeParser parser = new EarthQuakeParser();
-		String source = "data/nov20quakedata.atom";
-		//String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-		//String source = "data/nov20quakedatasmall.atom";
-		ArrayList<QuakeEntry> list = parser.read(source);
-		System.out.println("# quakes read: " + list.size());
-
-		ArrayList<QuakeEntry> ofDepth = filterByDepth(list , -10000.0, -8000.0);
-		for (QuakeEntry qe: ofDepth){
-			System.out.printf("Location = %s\n" , qe.toString() );
-		}
-
-		System.out.printf("Found %d quakes that match that criteria." , ofDepth.size());
-	}
-
-	public void quakesByPhrase(){
-		EarthQuakeParser parser = new EarthQuakeParser();
-		String source = "data/nov20quakedata.atom";
-		//String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-		//String source = "data/nov20quakedatasmall.atom";
-		ArrayList<QuakeEntry> list = parser.read(source);
-		System.out.println("# quakes read: " + list.size());
-
-		ArrayList<QuakeEntry> byPhrase = filterByPhrase(list, "any", "Creek");
-
-		for (QuakeEntry qe: byPhrase){
-			System.out.println(qe.toString());
-		}
-
-		System.out.printf("Found %d quakes that match that criteria." , byPhrase.size());
-	}
+	
+    public void quakesofDepth() {
+        EarthQuakeParser parser = new EarthQuakeParser();
+        String source = "data/nov20quakedata.atom";
+        //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
+        //String source = "data/nov20quakedatasmall.atom";
+        ArrayList<QuakeEntry> list = parser.read(source);
+        System.out.println("# quakes read: " + list.size());
+        
+        ArrayList<QuakeEntry> ofDepth = filterByDepth(list , -10000.0, -8000.0);
+        for (QuakeEntry qe: ofDepth){
+            System.out.printf("Location = %s\n" , qe.toString() );
+        }
+        
+        System.out.printf("Found %d quakes that match that criteria." , ofDepth.size());
+    }
 }
